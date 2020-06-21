@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MainComponent from './Components/MainComponent';
-import Ludo from './Components/Ludo';
-
+import Dice from './Components/Dice';
+import Ludo from './Components/Ludo'
 
 class App extends Component{
   constructor(props){

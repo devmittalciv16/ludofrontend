@@ -51,6 +51,7 @@ class Ludo extends Component{
           y3:["14-y-cell", true],
           y4:["13-y-cell", true]
         }
+        this.thisPlayer = 0;
     }
 
     isSafe = (gotiBlock)=>{
@@ -464,11 +465,13 @@ class Ludo extends Component{
             if(goti[0]=='g' && this.gotiPosition[goti][1]){
                 let gotiBlock = document.getElementById(this.gotiPosition[goti][0]);
                 gotiBlock.onclick =()=>{
+                    if(this.currentPlayer!=this.thisPlayer)return;
                     Sock.emit('gchalf', [this.gotiPosition[goti][0], goti, chalCount, window.location.pathname]);
                 }
             }else if(goti[0]=='g' && !this.gotiPosition[goti][1] && chalCount==6){
                 let gotiBlock = document.getElementById(this.gotiPosition[goti][0]);
                 gotiBlock.onclick = ()=>{
+                    if(this.currentPlayer!=this.thisPlayer)return;
                     Sock.emit('gchals', [this.gotiPosition[goti][0], goti, chalCount, window.location.pathname]);
                 }
                 return;
@@ -481,11 +484,13 @@ class Ludo extends Component{
             if(goti[0]=='y' && this.gotiPosition[goti][1]){
                 let gotiBlock = document.getElementById(this.gotiPosition[goti][0]);
                 gotiBlock.onclick =()=>{
+                    if(this.currentPlayer!=this.thisPlayer)return;
                     Sock.emit('ychalf', [this.gotiPosition[goti][0], goti, chalCount, window.location.pathname]);  
                 }
             }else if(goti[0]=='y' && !this.gotiPosition[goti][1] && chalCount==6){
                 let gotiBlock = document.getElementById(this.gotiPosition[goti][0]);
                 gotiBlock.onclick =()=>{
+                    if(this.currentPlayer!=this.thisPlayer)return;
                     Sock.emit('ychals', [this.gotiPosition[goti][0], goti, chalCount, window.location.pathname]); 
                 }
             }
@@ -497,11 +502,13 @@ class Ludo extends Component{
             if(goti[0]=='b' && this.gotiPosition[goti][1]){
                 let gotiBlock = document.getElementById(this.gotiPosition[goti][0]);
                 gotiBlock.onclick = ()=>{
+                    if(this.currentPlayer!=this.thisPlayer)return;
                     Sock.emit('bchalf', [this.gotiPosition[goti][0], goti, chalCount, window.location.pathname]);
                 }
             }else if(goti[0]=='b' && !this.gotiPosition[goti][1] && chalCount==6){
                 let gotiBlock = document.getElementById(this.gotiPosition[goti][0]);
                 gotiBlock.onclick = ()=>{
+                    if(this.currentPlayer!=this.thisPlayer)return;
                     Sock.emit('bchals', [this.gotiPosition[goti][0], goti, chalCount, window.location.pathname]);
                 }
             }
@@ -523,23 +530,25 @@ class Ludo extends Component{
             }
         })   
     }
-    
+    getChalCount=(chalCount)=>{
+        
+        if(this.chalProcess || this.currentPlayer!=this.thisPlayer)return;
+        var body = {
+            chalCount:chalCount,
+            link:window.location.pathname
+        }
+        Sock.emit('roll', body);
+        
+    }
     componentDidMount=()=>{
+        this.thisPlayer = JSON.parse(Cookie.get('player')).id;
         Sock = io("http://ludoqueer.herokuapp.com/");
         Sock.emit('joinroom', window.location.pathname);
-        this.dice = document.getElementById("dice");
+        document.getElementById("playerinfo").innerHTML = "you are " + this.chalArray[this.thisPlayer];
         this.chalArray.length = Cookie.get('players');
         this.makeBlanks();
         this.updateGotis();
-        this.dice.onclick = ()=>{
-            if(this.chalProcess)return;
-            let chalCount = (parseInt(10000*Math.random()))%6+1;
-            var body = {
-                chalCount:chalCount,
-                link:window.location.pathname
-            }
-            Sock.emit('roll', body);
-        }
+
         
         Sock.on('roll', (msg)=>{
             console.log(msg);
@@ -572,7 +581,7 @@ class Ludo extends Component{
     }
     
     render(){
-        return <LudoLayout/>;
+        return <LudoLayout dicefunc={this.getChalCount}/>;
     }
 }
 

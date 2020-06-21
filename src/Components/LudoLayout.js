@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import '../mycss.css'
+import Dice from './Dice';
+
 class LudoLayout extends Component{
     constructor(props){
         super(props);
@@ -44,7 +46,7 @@ class LudoLayout extends Component{
                 </div>
               </div>
               <div id="dice" className="home">
-                <div className="roll">Roll</div>
+                <Dice dicefunc={this.props.dicefunc}/>
               </div>
               <div id="0-cell" className="cells" style={{ top: "40%" }}>
                 0
@@ -406,6 +408,7 @@ class LudoLayout extends Component{
 
             <div>
             <div className="info">
+                <div id="playerinfo"></div>
                 <div id="turnInfo" />
                 <div id="diceInfo" />
             </div>
