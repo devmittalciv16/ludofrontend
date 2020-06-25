@@ -19,14 +19,17 @@ class LudoLayout extends Component{
                   <div id="g-2-home" className="homegoti square square-two green" />
                   <div id="g-3-home" className="homegoti square square-three green" />
                   <div id="g-4-home" className="homegoti square square-four green" />
+                  <p id="gplayername" className="playername"></p>
                 </div>
               </div>
               <div className="house yellow" style={{ right: 0 }}>
+                
                 <div className="box">
                   <div id="y-1-home" className="homegoti square square-one yellow" />
                   <div id="y-2-home" className="homegoti square square-two yellow" />
                   <div id="y-3-home" className="homegoti square square-three yellow" />
                   <div id="y-4-home" className="homegoti square square-four yellow" />
+                  <p id="yplayername" className="playername"></p>
                 </div>
               </div>
               <div className="house red" style={{ bottom: 0 }}>
@@ -35,6 +38,7 @@ class LudoLayout extends Component{
                   <div id="r-2-home" className="homegoti square square-two red" />
                   <div id="r-3-home" className="homegoti square square-three red" />
                   <div id="r-4-home" className="homegoti square square-four red" />
+                  <p id="rplayername" className="playername"></p>
                 </div>
               </div>
               <div className="house blue" style={{ bottom: 0, right: 0 }}>
@@ -43,6 +47,7 @@ class LudoLayout extends Component{
                   <div id="b-2-home" className="homegoti square square-two blue" />
                   <div id="b-3-home" className="homegoti square square-three blue" />
                   <div id="b-4-home" className="homegoti square square-four blue" />
+                  <p id="bplayername" className="playername"></p>
                 </div>
               </div>
               <div id="dice" className="home">
@@ -59,107 +64,107 @@ class LudoLayout extends Component{
                 1
               </div>
               <div id="2-cell" className="cells" style={{ top: "40%", left: "13.32%" }}>
-                g-1
+        
               </div>
               <div id="3-cell" className="cells" style={{ top: "40%", left: "19.98%" }}>
-                3
+                
               </div>
               <div id="4-cell" className="cells" style={{ top: "40%", left: "26.64%" }}>
-                4
+                
               </div>
               <div id="5-cell" className="cells" style={{ top: "40%", left: "33.3%" }}>
-                5
+                
               </div>
               <div id="11-cell" className="cells" style={{ top: 0, left: "40%" }}>
-                11
+                
               </div>
               <div id="10-cell" className="cells" style={{ top: "6.66%", left: "40%" }}>
-                10
+                
               </div>
               <div
                 id="9-cell"
                 className="cells safe"
                 style={{ top: "13.32%", left: "40%" }}
               >
-                9
+                
               </div>
               <div id="8-cell" className="cells" style={{ top: "19.98%", left: "40%" }}>
-                8
+                
               </div>
               <div id="7-cell" className="cells" style={{ top: "26.64%", left: "40%" }}>
-                7
+                
               </div>
               <div id="6-cell" className="cells" style={{ top: "33.3%", left: "40%" }}>
-                6
+                
               </div>
               <div id="12-cell" className="cells" style={{ top: 0, left: "46.66%" }}>
-                12
+                
               </div>
               <div
                 id="13-y-cell"
                 className="cells yellow"
                 style={{ top: "6.66%", left: "46.66%" }}
               >
-                13-y
+                
               </div>
               <div
                 id="14-y-cell"
                 className="cells yellow"
                 style={{ top: "13.32%", left: "46.66%" }}
               >
-                14-y
+                
               </div>
               <div
                 id="15-y-cell"
                 className="cells yellow"
                 style={{ top: "19.98%", left: "46.66%" }}
               >
-                15-y
+                
               </div>
               <div
                 id="16-y-cell"
                 className="cells yellow"
                 style={{ top: "26.64%", left: "46.66%" }}
               >
-                16-y
+                
               </div>
               <div
                 id="17-y-cell"
                 className="cells yellow"
                 style={{ top: "33.3%", left: "46.66%" }}
               >
-                17-y
+              
               </div>
               <div id="13-cell" className="cells" style={{ top: 0, left: "53.32%" }}>
-                13
+              
               </div>
               <div
                 id="14-cell"
                 className="cells y-start"
                 style={{ top: "6.66%", left: "53.32%" }}
               >
-                14
+              
               </div>
               <div id="15-cell" className="cells" style={{ top: "13.32%", left: "53.32%" }}>
-                15
+                
               </div>
               <div id="16-cell" className="cells" style={{ top: "19.98%", left: "53.32%" }}>
-                16
+                
               </div>
               <div id="17-cell" className="cells" style={{ top: "26.64%", left: "53.32%" }}>
-                17
+                
               </div>
               <div id="18-cell" className="cells" style={{ top: "33.3%", left: "53.32%" }}>
-                18
+                
               </div>
               <div id="19-cell" className="cells" style={{ top: "40%", right: "33.3%" }}>
-                19
+              
               </div>
               <div id="20-cell" className="cells" style={{ top: "40%", right: "26.64%" }}>
-                20
+                
               </div>
               <div id="21-cell" className="cells" style={{ top: "40%", right: "19.98%" }}>
-                21
+                
               </div>
               <div
                 id="22-cell"
@@ -408,11 +413,11 @@ class LudoLayout extends Component{
 
             <div>
             <div className="info">
-                <div id="playerinfo"></div>
+                <div style={{display:"none"}} id="playerinfo"></div>
                 <div id="turnInfo" />
                 <div id="diceInfo" />
             </div>
-            <div className="gotibox">
+            <div style={{display:"none"}} className="gotibox">
                 <div className="gotilabel">Gotis in home</div>
                 <div id="donegotis" className="donegotis" />
             </div>

@@ -8,7 +8,7 @@
 .game {
     display: flex;
     flex-wrap: wrap;
-    margin: 20px auto;
+    margin: 10px auto;
     position: relative;
     width: 95vw;
     height: 95vw;
@@ -183,7 +183,6 @@
     font-family:'Open Sans', 'Helvetica Neue';
     font-size:larger;
     text-align: center;
-    margin:20px;
 }
 .gotibox{
     border: 2px solid black;
@@ -210,4 +209,14 @@
 
 .dieface{
     display: none;
+}
+
+.playername{
+    position: absolute;
+    
+    font-size: small;
+    top:80%;
+    left:0%;
+    text-align: center;
+    width:100px;
 }

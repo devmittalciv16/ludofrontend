@@ -6,7 +6,9 @@ var Sock = io("http://ludoqueer.herokuapp.com/");
 Sock.on('join', (msg)=>{
     window.location.reload();
 })
+
 Sock.on('start', (msg)=>{
+    console.log("start aaya");
     Cookie.set('start', msg);
     window.location.reload();
 })
