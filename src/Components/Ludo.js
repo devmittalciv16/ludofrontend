@@ -549,18 +549,25 @@ class Ludo extends Component{
         this.chalArray.length = Cookie.get('players');
         this.makeBlanks();
         this.updateGotis();
-        if(this.thisPlayer==0){
-            document.getElementById("gplayername").innerHTML = JSON.parse(Cookie.get('player')).username;
-        }
-        if(this.thisPlayer==1){
-            document.getElementById("yplayername").innerHTML = JSON.parse(Cookie.get('player')).username;
-        }
-        if(this.thisPlayer==2){
-            document.getElementById("bplayername").innerHTML = JSON.parse(Cookie.get('player')).username;
-        }
-        if(this.thisPlayer==3){
-            document.getElementById("rplayername").innerHTML = JSON.parse(Cookie.get('player')).username;
-        }      
+        API.post('/getplayers', {link:window.location.pathname}).then((data)=>{
+            var numPlayers = data.data.length;
+            for(var i=0;i<numPlayers;i++){
+                if(data.data[i].id==0){
+                    document.getElementById("gplayername").innerHTML = data.data[i].username;
+                }
+                if(data.data[i].id==1){
+                    document.getElementById("yplayername").innerHTML = data.data[i].username;
+                }
+                if(data.data[i].id==2){
+                    document.getElementById("bplayername").innerHTML = data.data[i].username;
+                }
+                if(data.data[i].id==3){
+                    document.getElementById("rplayername").innerHTML = data.data[i].username;
+                }  
+            }
+            
+        })
+    
         Sock.on('roll', (msg)=>{
             console.log(msg);
             this.rollProcess(msg.chalCount);

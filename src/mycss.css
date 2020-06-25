@@ -12,7 +12,7 @@
     position: relative;
     width: 95vw;
     height: 95vw;
-    box-shadow: 0px 0px 8px grey;
+    box-shadow: 0px 0px 6px grey;
 }
 @media screen and (min-width:1100px){
     .game{

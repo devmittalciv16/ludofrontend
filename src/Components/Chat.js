@@ -46,9 +46,9 @@ class Chat extends Component{
     }
     render(){
         const chatForm = (
-            <div className=" content">
+            <div className="container">
                 <Row className="justify-content-center">
-                    <Col xs="10" sm={{size:6, offset:3}}>
+                    <Col xs="10" sm="6">
                         <ul className="list-class" id="chats">
                         </ul>
                     </Col>
@@ -63,8 +63,8 @@ class Chat extends Component{
                             </FormGroup>
                         </Col>
                         </Row>
-                        <Row className="justify-content-center align-items-center">
-                        <Col xs={{size:2}} className="">
+                        <Row className="justify-content-center ">
+                        <Col xs={{size:2}} className="align-items-center">
                             <Button color="info" className="button-class" onClick={this.handleMessage} >Send</Button>
                         </Col>
                         </Row>
